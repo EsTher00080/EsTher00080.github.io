@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <title>关于我 | E2Ther&#39;s blog</title>
+    <meta name="author" content="Esther" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>E2THER&#39;S BLOG</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;E2THER&#39;S BLOG</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>关于我</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2025/10/24
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="🎓✨-E2Ther"><a href="#🎓✨-E2Ther" class="headerlink" title="🎓✨ E2Ther"></a>🎓✨ E2Ther</h1><blockquote>
+<p>“白天敲代码，晚上画插画的斜杠大学生”</p>
+</blockquote>
+<p><img src="/images/avatar.jpg" alt="个人头像"></p>
+<h2 id="📍-基本信息"><a href="#📍-基本信息" class="headerlink" title="📍 基本信息"></a>📍 基本信息</h2><p><strong>身份</strong>: 软件工程大三学生 &amp; 业余插画师<br><strong>学校</strong>: 浙江师范大学 计算机学院<br><strong>所在地</strong>: 金华<br><strong>状态</strong>: 求职实习中 • 接稿开放</p>
+<h2 id="🌟-双线作战"><a href="#🌟-双线作战" class="headerlink" title="🌟 双线作战"></a>🌟 双线作战</h2><h3 id="💻-技术侧"><a href="#💻-技术侧" class="headerlink" title="💻 技术侧"></a>💻 技术侧</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> techieSide = &#123;</span><br><span class="line">  <span class="attr">major</span>: <span class="string">&quot;软件工程&quot;</span>,</span><br><span class="line">  <span class="attr">grade</span>: <span class="string">&quot;大三&quot;</span>,</span><br><span class="line">  <span class="attr">focus</span>: [<span class="string">&quot;前端开发&quot;</span>, <span class="string">&quot;移动开发&quot;</span>, <span class="string">&quot;云原生&quot;</span>],</span><br><span class="line">  <span class="attr">techStack</span>: [<span class="string">&quot;Java&quot;</span>, <span class="string">&quot;Python&quot;</span>, <span class="string">&quot;Vue&quot;</span>, <span class="string">&quot;React Native&quot;</span>],</span><br><span class="line">  <span class="attr">lookingFor</span>: <span class="string">&quot;2026暑期实习&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="🎨-创作侧"><a href="#🎨-创作侧" class="headerlink" title="🎨 创作侧"></a>🎨 创作侧</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> artistSide = &#123;</span><br><span class="line">  <span class="attr">style</span>: [<span class="string">&quot;二次元&quot;</span>, <span class="string">&quot;少女系&quot;</span>, <span class="string">&quot;氛围插画&quot;</span>],</span><br><span class="line">  <span class="attr">tools</span>: [<span class="string">&quot;Procreate&quot;</span>, <span class="string">&quot;Ipad Air4&quot;</span>, <span class="string">&quot;Photoshop&quot;</span>],</span><br><span class="line">  <span class="attr">status</span>: <span class="string">&quot;稿位开放&quot;</span>,</span><br><span class="line">  <span class="attr">specialty</span>: <span class="string">&quot;角色设计 • 原创插画 • 同人创作&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="📚-校园活跃"><a href="#📚-校园活跃" class="headerlink" title="📚 校园活跃"></a>📚 校园活跃</h2><h3 id="学术项目"><a href="#学术项目" class="headerlink" title="学术项目"></a>学术项目</h3><p><strong>🏆 爱党建·AI智能党建系统</strong> (2023.09-2024.01)</p>
+<ul>
+<li>技术栈: Vue3 + Spring Boot + MySQL（略了）</li>
+<li>负责前端架构，优化页面加载速度</li>
+<li>制作演示PPT及视频</li>
+</ul>
+<p><strong>📱 TomatoOnline番茄自习室</strong> (2023.03-2023.06)</p>
+<ul>
+<li>技术栈:  Vue3 + Spring Boot + MySQL（其实是Cursor+GPT+DS）</li>
+<li>独立完成UI设计和前端开发</li>
+<li>应付课设</li>
+</ul>
+<h3 id="课外活动"><a href="#课外活动" class="headerlink" title="课外活动"></a>课外活动</h3><ul>
+<li>🎪 打打ff14</li>
+<li>💻 搞搞同人</li>
+<li>🎨 画画稿</li>
+</ul>
+<h2 id="🖌️-创作轨迹"><a href="#🖌️-创作轨迹" class="headerlink" title="🖌️ 创作轨迹"></a>🖌️ 创作轨迹</h2><h3 id="近期作品"><a href="#近期作品" class="headerlink" title="近期作品"></a>近期作品</h3><p><strong>《VFTS 352》|同人合志</strong> (2025)</p>
+<ul>
+<li><p>明日方舟同人，博普博cp向合志</p>
+</li>
+<li><p>全72+4p，封面300g铜版纸，局部UV特殊全包勒口，软精装订</p>
+</li>
+<li><p>担任主催、画师</p>
+<p><img src="https://esther-blog.oss-cn-hangzhou.aliyuncs.com/img/vfts352.jpg" alt="vfts352"></p>
+</li>
+</ul>
+<p><strong>私稿业务：半身插画</strong> (2025)</p>
+<ul>
+<li><p>共计7+张</p>
+</li>
+<li><p>目前排期：2026.1.15</p>
+<p><img src="/images/cms.jpg" alt="插画例图"></p>
+</li>
+</ul>
+<h3 id="创作数据"><a href="#创作数据" class="headerlink" title="创作数据"></a>创作数据</h3><p><strong>📈 2025年产出:</strong><br>  插画作品: 24幅<br>  技术项目: 2个<br>  课程设计: 3个<br>  睡眠时间: 😴严重不足</p>
+<h2 id="🔮-技能树"><a href="#🔮-技能树" class="headerlink" title="🔮 技能树"></a>🔮 技能树</h2><h3 id="技术技能"><a href="#技术技能" class="headerlink" title="技术技能"></a>技术技能</h3><ul>
+<li><strong>编程语言</strong>: Java, C语言 , JavaScript </li>
+<li><strong>前端框架</strong>: Vue.js, React, React Native</li>
+<li><strong>开发工具</strong>: Git, VS Code, IntelliJ IDEA</li>
+<li><strong>数据库</strong>: MySQL</li>
+</ul>
+<h3 id="艺术技能"><a href="#艺术技能" class="headerlink" title="艺术技能"></a>艺术技能</h3><ul>
+<li><strong>数字绘画</strong>: Procreate, Clip Studio Paint, Photoshop</li>
+<li><strong>传统美术</strong>: 素描, 水彩, 速写</li>
+<li><strong>设计理论</strong>: 色彩构成, 平面设计, UI设计</li>
+</ul>
+<h2 id="🎯-当前目标"><a href="#🎯-当前目标" class="headerlink" title="🎯 当前目标"></a>🎯 当前目标</h2><h3 id="短期目标-2025"><a href="#短期目标-2025" class="headerlink" title="短期目标 (2025)"></a>短期目标 (2025)</h3><ul>
+<li><input disabled="" type="checkbox"> 找到2026暑期前端开发实习</li>
+<li><input disabled="" type="checkbox"> 完成个人作品集网站开发</li>
+<li><input disabled="" type="checkbox"> 学习新的技术，补全缺陷</li>
+<li><input disabled="" type="checkbox"> 筹备同人制品的线上通贩</li>
+</ul>
+<h3 id="长期愿景"><a href="#长期愿景" class="headerlink" title="长期愿景"></a>长期愿景</h3><ul>
+<li>成为懂艺术的工程师，懂编程的艺术家</li>
+<li>探索技术与艺术的跨界融合</li>
+<li>创作影响人心的作品</li>
+</ul>
+<h2 id="📦-装备清单"><a href="#📦-装备清单" class="headerlink" title="📦 装备清单"></a>📦 装备清单</h2><h3 id="开发装备"><a href="#开发装备" class="headerlink" title="开发装备"></a>开发装备</h3><ul>
+<li>华硕天选4</li>
+<li>张老师推荐的键盘</li>
+<li>超市买的鼠标</li>
+</ul>
+<h3 id="创作装备"><a href="#创作装备" class="headerlink" title="创作装备"></a>创作装备</h3><ul>
+<li>iPad Air4 + Apple Pencil 2</li>
+<li>Wacom Intuos Pro（并没有，谁给我买wacom数位屏）</li>
+<li>色准显示器 + 校色仪（并没有*2）</li>
+</ul>
+<h2 id="💌-联系合作"><a href="#💌-联系合作" class="headerlink" title="💌 联系合作"></a>💌 联系合作</h2><h3 id="技术合作"><a href="#技术合作" class="headerlink" title="技术合作"></a>技术合作</h3><ul>
+<li><strong>实习求职</strong>: 前端开发 &#x2F; 移动开发 实习岗位</li>
+<li><strong>项目合作</strong>: Web开发 &#x2F; App开发 &#x2F; 技术咨询</li>
+<li><strong>技术交流</strong>: 学习伙伴 &#x2F; 代码评审</li>
+</ul>
+<h3 id="艺术委托"><a href="#艺术委托" class="headerlink" title="艺术委托"></a>艺术委托</h3><ul>
+<li><strong>接稿类型</strong>: 角色设计 &#x2F; 商业插画 &#x2F; 同人创作</li>
+<li><strong>工作流程</strong>: 沟通 → 草图 → 线稿 → 上色 → 交付</li>
+<li><strong>排期情况</strong>: 目前档期较满，预计下次开放邀请在2026.1.15</li>
+</ul>
+<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><p><strong>邮箱</strong>: <a href="mailto:&#49;&#x35;&#x37;&#53;&#x34;&#x38;&#53;&#48;&#54;&#x32;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">&#49;&#x35;&#x37;&#53;&#x34;&#x38;&#53;&#48;&#54;&#x32;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;</a><br><strong>米画师</strong>: <a target="_blank" rel="noopener" href="https://www.mihuashi.com/profiles/4036866?role=painter&utm_source=direct&utm_campaign=userpage&utm_medium=share">https://www.mihuashi.com/profiles/4036866?role=painter&amp;utm_source=direct&amp;utm_campaign=userpage&amp;utm_medium=share</a><br><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/EsTher00080">https://github.com/EsTher00080</a><br><strong>社交媒体</strong>: </p>
+<ul>
+<li>微博: @TinG_42</li>
+<li>X: @EsTher00080</li>
+<li>小红书: #EsTher_00080</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>感谢访问我的博客！</strong><br><em>“迎风执炬，向死而生”</em></p>
+</blockquote>
+
+    </div>
+    
+    
+    
+    
+    
+    
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2025 E2Ther&#39;s blog
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;Esther
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+
+
+
+
+    
+</body>
+</html>
